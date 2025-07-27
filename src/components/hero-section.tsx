@@ -72,7 +72,7 @@ export function HeroSection() {
                 </div>
 
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-center lg:text-left">
-                  Hi, I'm{" "}
+                  Hi, I&apos;m{" "}
                   <span className="text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 bg-clip-text animate-float">
                     Roshan Sharma
                   </span>

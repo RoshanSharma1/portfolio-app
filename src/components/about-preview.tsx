@@ -70,7 +70,7 @@ export function AboutPreview() {
             <CardHeader>
               <CardTitle className="text-xl">Current Role</CardTitle>
               <CardDescription>
-                What I'm working on now
+                What I&apos;m working on now
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
