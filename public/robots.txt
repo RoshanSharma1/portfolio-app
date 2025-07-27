@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://roshansharma1.github.io
+
+# Sitemaps
+Sitemap: https://roshansharma1.github.io/sitemap.xml
