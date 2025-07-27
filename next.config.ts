@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  siteUrl: 'https://roshansharma1.github.io',
+  generateRobotsTxt: true,
 };
 
 export default nextConfig;
