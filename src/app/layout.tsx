@@ -30,6 +30,18 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="google-site-verification" content="031AlFvx6wh-qqTdeKfoF-M1I0StKUlDRL_Am-iNTrQ" />
+        {/* <!-- Google tag (gtag.js) --> */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CBNV2D089Y"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-CBNV2D089Y');
+            `,
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
