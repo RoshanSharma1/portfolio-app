@@ -50,6 +50,13 @@ const projectData = {
   }
 };
 
+export async function generateStaticParams() {
+  // Define all possible slugs here
+  return [
+    { slug: 'e-commerce-platform' }
+  ];
+}
+
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = projectData[slug as keyof typeof projectData];
