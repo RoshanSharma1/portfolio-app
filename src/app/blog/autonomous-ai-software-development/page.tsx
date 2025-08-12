@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Footer } from "@/components/footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -55,21 +56,21 @@ export default function AutonomousAISoftwareDevelopmentPage() {
             {/* Article Content */}
             <div className="space-y-6">
               <p className="text-xl text-muted-foreground">
-                What if you could just describe a feature and get working code, tested and deployed — without touching your IDE? That's the promise of autonomous software engineering platforms. Explore the future of AI-powered development.
+                What if you could just describe a feature and get working code, tested and deployed — without touching your IDE? That&apos;s the promise of autonomous software engineering platforms. Explore the future of AI-powered development.
               </p>
 
               <h2>The Vision: Software That Writes Itself</h2>
               <p>
-                Imagine describing a new feature in plain English and having it implemented, tested, and deployed automatically. This isn't science fiction — it's the emerging reality of autonomous software engineering.
+                Imagine describing a new feature in plain English and having it implemented, tested, and deployed automatically. This isn&apos;t science fiction — it&apos;s the emerging reality of autonomous software engineering.
               </p>
 
               <p>
-                We're moving from AI-assisted development (GitHub Copilot, ChatGPT) to AI-autonomous development, where AI systems handle the entire software development lifecycle with minimal human intervention.
+                We&apos;re moving from AI-assisted development (GitHub Copilot, ChatGPT) to AI-autonomous development, where AI systems handle the entire software development lifecycle with minimal human intervention.
               </p>
 
               <h2>The Current State of Autonomous Development</h2>
               
-              <h3>What's Possible Today</h3>
+              <h3>What&apos;s Possible Today</h3>
               <p>
                 Current autonomous development platforms can handle surprisingly complex tasks:
               </p>

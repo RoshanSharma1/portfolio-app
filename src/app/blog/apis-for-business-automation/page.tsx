@@ -1,3 +1,4 @@
+
 import { Footer } from "@/components/footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -55,7 +56,7 @@ export default function APIsForBusinessAutomationPage() {
             {/* Article Content */}
             <div className="space-y-6">
               <p className="text-xl text-muted-foreground">
-                A great API isn't just code — it's the bridge between systems. When building for automation, APIs must be reliable, flexible, and integration-friendly. Learn how to design APIs that AI agents love.
+                A great API isn&apos;t just code — it&apos;s the bridge between systems. When building for automation, APIs must be reliable, flexible, and integration-friendly. Learn how to design APIs that AI agents love.
               </p>
 
               <h2>The Automation-First Mindset</h2>
@@ -104,7 +105,7 @@ export default function APIsForBusinessAutomationPage() {
 
               <h3>3. Idempotency for Reliability</h3>
               <p>
-                Automation systems often retry failed requests. Idempotent operations ensure that retries don't cause unintended side effects.
+                Automation systems often retry failed requests. Idempotent operations ensure that retries don&apos;t cause unintended side effects.
               </p>
 
               <h4>Implementation Strategies:</h4>
@@ -261,7 +262,7 @@ X-RateLimit-Retry-After: 60`}
               </ul>
 
               <p>
-                By designing APIs with automation in mind, you're not just building for today's needs — you're preparing for a future where AI agents are the primary consumers of your services.
+                By designing APIs with automation in mind, you&apos;re not just building for today&apos;s needs — you&apos;re preparing for a future where AI agents are the primary consumers of your services.
               </p>
 
               {/* Tags */}

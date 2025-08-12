@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Footer } from "@/components/footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -171,4 +172,3 @@ export default function BuildAIAgentOpenSourcePage() {
     </div>
   );
 }
-
