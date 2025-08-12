@@ -1,6 +1,5 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 
 const skills = [
@@ -317,4 +316,4 @@ export default function AboutPage() {
       </section>
     </div>
   );
-} 
+}
