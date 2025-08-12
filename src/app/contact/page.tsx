@@ -90,7 +90,7 @@ export default function ContactPage() {
           Get In Touch
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          I'm always interested in discussing new opportunities, collaborations, or just having a chat about technology. 
+          I&apos;m always interested in discussing new opportunities, collaborations, or just having a chat about technology. 
           Feel free to reach out through any of the channels below or send me a message directly.
         </p>
       </div>
@@ -202,7 +202,7 @@ export default function ContactPage() {
                   <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-green-600 mb-2">Message Sent!</h3>
                   <p className="text-muted-foreground">
-                    Thank you for reaching out. I'll get back to you within 24 hours.
+                    Thank you for reaching out. I&apos;ll get back to you within 24 hours.
                   </p>
                 </div>
               ) : (
@@ -242,7 +242,7 @@ export default function ContactPage() {
                       id="subject"
                       name="subject"
                       type="text"
-                      placeholder="What's this about?"
+                      placeholder="What&apos;s this about?"
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
@@ -297,11 +297,11 @@ export default function ContactPage() {
         <Card className="gradient-card max-w-4xl mx-auto">
           <CardContent className="p-8">
             <h3 className="text-xl font-semibold mb-4 text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text">
-              Let's Build Something Amazing Together
+              Let&apos;s Build Something Amazing Together
             </h3>
             <p className="text-muted-foreground mb-6">
-              Whether you're looking for a full-stack developer, need help with cloud architecture, 
-              or want to discuss research opportunities, I'm here to help. I bring expertise in 
+              Whether you&apos;re looking for a full-stack developer, need help with cloud architecture, 
+              or want to discuss research opportunities, I&apos;m here to help. I bring expertise in 
               modern web technologies, distributed systems, and a passion for solving complex problems.
             </p>
             <div className="flex flex-wrap justify-center gap-2">
