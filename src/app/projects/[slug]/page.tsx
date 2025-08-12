@@ -6,60 +6,21 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-
-// This would typically come from a CMS or database
-const projectData = {
-  "e-commerce-platform": {
-    title: "E-Commerce Platform",
-    description: "A comprehensive full-stack e-commerce solution built with modern web technologies. This project demonstrates scalable architecture, secure payment processing, and excellent user experience.",
-    longDescription: `
-      This e-commerce platform was built to handle high-volume transactions while maintaining excellent performance and user experience. The application features a modern, responsive design with advanced functionality including user authentication, product catalog management, shopping cart functionality, secure payment processing via Stripe, and a comprehensive admin dashboard.
-
-      The project showcases my expertise in full-stack development, API design, database optimization, and third-party integrations. The architecture is designed to be scalable and maintainable, with clear separation of concerns and comprehensive error handling.
-    `,
-    technologies: ["React", "Node.js", "Express.js", "MongoDB", "Stripe", "JWT", "Redux"],
-    status: "Completed",
-    category: "Full-Stack",
-    duration: "3 months",
-    teamSize: "Solo",
-    challenges: [
-      "Implementing secure payment processing with Stripe",
-      "Optimizing database queries for large product catalogs",
-      "Building a responsive admin dashboard with real-time updates",
-      "Ensuring PCI compliance for payment handling"
-    ],
-    solutions: [
-      "Used Stripe's webhook system for reliable payment processing",
-      "Implemented database indexing and query optimization",
-      "Built real-time features using Socket.io",
-      "Followed security best practices and conducted thorough testing"
-    ],
-    features: [
-      "User authentication and authorization",
-      "Product catalog with search and filtering",
-      "Shopping cart with persistent storage",
-      "Secure payment processing with Stripe",
-      "Order management and tracking",
-      "Admin dashboard for inventory management",
-      "Responsive design for all devices",
-      "Real-time inventory updates"
-    ],
-    githubUrl: "https://github.com/yourusername/e-commerce-platform",
-    liveUrl: "https://ecommerce-platform-demo.vercel.app",
-    image: "/api/placeholder/800/400"
-  }
-};
+import { projects, getProjectBySlug } from "@/data/projects";
 
 export async function generateStaticParams() {
-  // Define all possible slugs here
-  return [
-    { slug: 'e-commerce-platform' }
-  ];
+  return projects.map((project) => ({
+    slug: project.id,
+  }));
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project = projectData[slug as keyof typeof projectData];
+  const project = getProjectBySlug(slug);
+
+  if (!project) {
+    notFound();
+  }
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -220,4 +181,4 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <Footer />
     </div>
   );
-} 
+}
