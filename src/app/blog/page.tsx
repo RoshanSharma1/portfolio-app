@@ -1,81 +1,85 @@
+"use client";
+
 import { Footer } from "@/components/footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
 
 const blogPosts = [
   {
-    id: "building-scalable-apps",
-    title: "Building Scalable Applications with Next.js and TypeScript",
-    excerpt: "Learn how to architect and build scalable web applications using Next.js 13+ App Router and TypeScript. This comprehensive guide covers best practices for performance, SEO, and maintainability.",
+    id: "build-ai-agent-open-source",
+    title: "How to Build Your Own AI Agent with Open-Source Tools",
+    excerpt: "AI agents aren't just for tech giants anymore. With open-source tools like Flowise, LangChain, and LangGraph, anyone can create an agent that automates workflows, integrates with APIs, and runs 24/7 — without building everything from scratch.",
     author: "Roshan Sharma",
-    date: "2024-01-15",
-    category: "Development",
-    readTime: "8 min read",
-    tags: ["Next.js", "TypeScript", "Performance", "Architecture"],
-    href: "/blog/building-scalable-apps"
+    date: "2025-01-15",
+    category: "AI & Automation",
+    readTime: "7 min read",
+    tags: ["AI Agents", "Flowise", "LangChain", "Open Source", "Automation"],
+    href: "/blog/build-ai-agent-open-source",
+    thumbnail: "/images/blog/ai-agent-open-source.svg"
   },
   {
-    id: "modern-css-techniques",
-    title: "Modern CSS Techniques for Better User Experience",
-    excerpt: "Explore advanced CSS techniques including CSS Grid, Flexbox, and modern layout patterns that can significantly improve your website's user experience and responsiveness.",
+    id: "kubernetes-vs-cloud-run-ai-agents",
+    title: "Kubernetes vs Cloud Run for Deploying AI Agents: Which Should You Choose?",
+    excerpt: "When you build an AI agent, the next big question is: where do you run it? Kubernetes and Cloud Run are two powerful choices — but they serve different needs. Learn which platform fits your AI deployment strategy.",
     author: "Roshan Sharma",
-    date: "2024-01-10",
-    category: "Frontend",
+    date: "2025-01-12",
+    category: "DevOps & Infrastructure",
     readTime: "6 min read",
-    tags: ["CSS", "UX", "Responsive Design", "Layout"],
-    href: "/blog/modern-css-techniques"
+    tags: ["Kubernetes", "Cloud Run", "AI Deployment", "Serverless", "Infrastructure"],
+    href: "/blog/kubernetes-vs-cloud-run-ai-agents",
+    thumbnail: "/images/blog/kubernetes-vs-cloud-run.svg"
   },
   {
-    id: "api-design-principles",
-    title: "API Design Principles for Modern Web Applications",
-    excerpt: "Discover the fundamental principles of designing RESTful APIs that are scalable, maintainable, and developer-friendly. Includes practical examples and real-world scenarios.",
+    id: "apis-for-business-automation",
+    title: "Designing APIs That Power Business Automation",
+    excerpt: "A great API isn't just code — it's the bridge between systems. When building for automation, APIs must be reliable, flexible, and integration-friendly. Learn how to design APIs that AI agents love.",
     author: "Roshan Sharma",
-    date: "2024-01-05",
-    category: "Backend",
-    readTime: "10 min read",
-    tags: ["API Design", "REST", "Backend", "Architecture"],
-    href: "/blog/api-design-principles"
+    date: "2025-01-10",
+    category: "API Design",
+    readTime: "8 min read",
+    tags: ["API Design", "Business Automation", "Integration", "Workflows", "Architecture"],
+    href: "/blog/apis-for-business-automation",
+    thumbnail: "/images/blog/api-business-automation.svg"
   },
   {
-    id: "state-management-react",
-    title: "State Management in React: From useState to Redux",
-    excerpt: "A comprehensive guide to state management in React applications, covering local state, context API, and global state management solutions for complex applications.",
+    id: "customize-open-source-without-breaking-updates",
+    title: "How to Customize an Open-Source Project Without Breaking Updates",
+    excerpt: "Forking an open-source repo is easy — keeping it updated while adding your own features is the hard part. Here's how to avoid painful merge conflicts and still make it yours.",
     author: "Roshan Sharma",
-    date: "2023-12-28",
-    category: "Development",
-    readTime: "12 min read",
-    tags: ["React", "State Management", "Redux", "Context API"],
-    href: "/blog/state-management-react"
+    date: "2025-01-08",
+    category: "Open Source",
+    readTime: "5 min read",
+    tags: ["Open Source", "Git", "Customization", "Maintenance", "Best Practices"],
+    href: "/blog/customize-open-source-without-breaking-updates",
+    thumbnail: "/images/blog/open-source-customization.svg"
   },
   {
-    id: "docker-best-practices",
-    title: "Docker Best Practices for Production Deployments",
-    excerpt: "Learn essential Docker best practices for building, optimizing, and deploying containers in production environments. Includes security considerations and performance optimization tips.",
+    id: "autonomous-ai-software-development",
+    title: "From Prompt to Production: How Autonomous AI Can Build Software for You",
+    excerpt: "What if you could just describe a feature and get working code, tested and deployed — without touching your IDE? That's the promise of autonomous software engineering platforms. Explore the future of AI-powered development.",
     author: "Roshan Sharma",
-    date: "2023-12-20",
-    category: "DevOps",
+    date: "2025-01-05",
+    category: "AI & Development",
     readTime: "9 min read",
-    tags: ["Docker", "DevOps", "Production", "Security"],
-    href: "/blog/docker-best-practices"
-  },
-  {
-    id: "testing-strategies",
-    title: "Testing Strategies for Modern Web Applications",
-    excerpt: "Comprehensive guide to implementing effective testing strategies including unit tests, integration tests, and end-to-end testing for web applications.",
-    author: "Roshan Sharma",
-    date: "2023-12-15",
-    category: "Development",
-    readTime: "11 min read",
-    tags: ["Testing", "Jest", "Cypress", "Quality Assurance"],
-    href: "/blog/testing-strategies"
+    tags: ["Autonomous AI", "Software Engineering", "AI Development", "Automation", "Future Tech"],
+    href: "/blog/autonomous-ai-software-development",
+    thumbnail: "/images/blog/autonomous-ai-development.svg"
   }
 ];
 
-const categories = ["All", "Development", "Frontend", "Backend", "DevOps", "Architecture"];
+const categories = ["All", "AI & Automation", "DevOps & Infrastructure", "API Design", "Open Source", "AI & Development"];
 
 export default function BlogPage() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  
+  const filteredPosts = selectedCategory === "All" 
+    ? blogPosts 
+    : blogPosts.filter(post => post.category === selectedCategory);
+
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-1 py-12 px-4 sm:px-6 lg:px-8">
@@ -84,8 +88,8 @@ export default function BlogPage() {
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4">Blog</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Insights, tutorials, and thoughts on software development, 
-              technology trends, and best practices.
+              Insights on AI agents, automation, modern development practices, 
+              and the future of autonomous software engineering.
             </p>
           </div>
 
@@ -94,9 +98,10 @@ export default function BlogPage() {
             {categories.map((category) => (
               <Button
                 key={category}
-                variant="outline"
+                variant={selectedCategory === category ? "default" : "outline"}
                 size="sm"
                 className="rounded-full"
+                onClick={() => setSelectedCategory(category)}
               >
                 {category}
               </Button>
@@ -105,11 +110,11 @@ export default function BlogPage() {
 
           {/* Blog Posts Grid */}
           <div className="space-y-6">
-            {blogPosts.map((post) => (
+            {filteredPosts.map((post) => (
               <Card key={post.id} className="group gradient-card hover-lift">
                 <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div className="space-y-2">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="space-y-2 flex-1">
                       <CardTitle className="text-xl text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text">
                         {post.title}
                       </CardTitle>
@@ -117,6 +122,17 @@ export default function BlogPage() {
                         {post.excerpt}
                       </CardDescription>
                     </div>
+                    {post.thumbnail && (
+                      <div className="flex-shrink-0">
+                        <Image
+                          src={post.thumbnail}
+                          alt={post.title}
+                          width={120}
+                          height={80}
+                          className="rounded-lg object-cover"
+                        />
+                      </div>
+                    )}
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -151,4 +167,4 @@ export default function BlogPage() {
       <Footer />
     </div>
   );
-} 
+}
