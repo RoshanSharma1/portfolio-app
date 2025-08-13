@@ -3,7 +3,81 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { projects, categories } from "@/data/projects";
+
+const projects = [
+  {
+    id: "codeorbit",
+    title: "CodeOrbit",
+    description: "A scalable AI agent orchestration platform that enables multi-agent workflows across organizations. Features distributed deployment, LLM integration, and workflow management.",
+    technologies: ["React", "Node.js", "Docker", "LangChain", "Redis", "Flowise"],
+    status: "Completed",
+    category: "AI/ML",
+    image: "/api/placeholder/400/250",
+    href: "/projects/codeorbit"
+  },
+  {
+    id: "e-commerce-platform",
+    title: "E-Commerce Platform",
+    description: "A full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include user authentication, product catalog, shopping cart, payment processing, and admin dashboard.",
+    technologies: ["React", "Node.js", "Stripe", "MongoDB", "Express.js"],
+    status: "Completed",
+    category: "Full-Stack",
+    image: "/api/placeholder/400/250",
+    href: "/projects/e-commerce-platform"
+  },
+  {
+    id: "task-management-app",
+    title: "Task Management App",
+    description: "A collaborative task management application with real-time updates, team features, and advanced project tracking capabilities.",
+    technologies: ["TypeScript", "Next.js", "Socket.io", "PostgreSQL", "Prisma"],
+    status: "In Progress",
+    category: "Full-Stack",
+    image: "/api/placeholder/400/250",
+    href: "/projects/task-management-app"
+  },
+  {
+    id: "data-dashboard",
+    title: "Data Visualization Dashboard",
+    description: "Interactive dashboard for analyzing and visualizing complex datasets with D3.js, featuring real-time data updates and customizable charts.",
+    technologies: ["D3.js", "React", "Python", "FastAPI", "PostgreSQL"],
+    status: "Completed",
+    category: "Data Science",
+    image: "/api/placeholder/400/250",
+    href: "/projects/data-dashboard"
+  },
+  {
+    id: "mobile-app",
+    title: "Mobile Fitness App",
+    description: "Cross-platform mobile application for fitness tracking with workout plans, progress monitoring, and social features.",
+    technologies: ["React Native", "Firebase", "Redux", "TypeScript"],
+    status: "Completed",
+    category: "Mobile",
+    image: "/api/placeholder/400/250",
+    href: "/projects/mobile-fitness-app"
+  },
+  {
+    id: "ai-chatbot",
+    title: "AI-Powered Chatbot",
+    description: "Intelligent chatbot using natural language processing for customer support and automated responses.",
+    technologies: ["Python", "TensorFlow", "NLP", "FastAPI", "Redis"],
+    status: "In Progress",
+    category: "AI/ML",
+    image: "/api/placeholder/400/250",
+    href: "/projects/ai-chatbot"
+  },
+  {
+    id: "portfolio-website",
+    title: "Portfolio Website",
+    description: "Modern, responsive portfolio website built with Next.js and Tailwind CSS, featuring dark mode and optimized performance.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+    status: "Completed",
+    category: "Frontend",
+    image: "/api/placeholder/400/250",
+    href: "/projects/portfolio-website"
+  }
+];
+
+const categories = ["All", "Full-Stack", "Frontend", "Mobile", "Data Science", "AI/ML"];
 
 export default function ProjectsPage() {
   return (
