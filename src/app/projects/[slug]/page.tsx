@@ -1,4 +1,3 @@
-import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -121,7 +120,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navigation />
       <main className="flex-1 py-12 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl">
           {/* Project Header */}
@@ -174,11 +172,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <CardContent className="p-0">
               {project.hasDiagram ? (
                 <div className="rounded-lg overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={`${project.title} Architecture Diagram`} 
-                    className="w-full h-auto"
-                  />
+                  <div className="aspect-video bg-muted rounded-t-lg flex items-center justify-center">
+                    <div className="text-muted-foreground">
+                      Architecture Diagram <span className="text-sm ml-2">(Coming Soon)</span>
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <div className="aspect-video bg-muted rounded-t-lg flex items-center justify-center">
