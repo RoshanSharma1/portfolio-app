@@ -6,10 +6,12 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getProjectBySlug, Project } from "@/data/projects";
 
-// This would typically come from a CMS or database
-const projectData = {
+// Fallback data for projects not in the projects.ts file
+const projectData: Record<string, Project> = {
   "codeorbit": {
+    id: "codeorbit",
     title: "CodeOrbit",
     description: "A scalable AI agent orchestration platform that enables multi-agent workflows across organizations with distributed deployment capabilities.",
     longDescription: `
@@ -49,9 +51,11 @@ const projectData = {
     githubUrl: "https://github.com/yourusername/codeorbit",
     liveUrl: "https://codeorbit-demo.vercel.app",
     image: "/images/projects/codeorbit-architecture-dark.png",
+    href: "/projects/codeorbit",
     hasDiagram: true
   },
   "e-commerce-platform": {
+    id: "e-commerce-platform",
     title: "E-Commerce Platform",
     description: "A comprehensive full-stack e-commerce solution built with modern web technologies. This project demonstrates scalable architecture, secure payment processing, and excellent user experience.",
     longDescription: `
@@ -88,7 +92,8 @@ const projectData = {
     ],
     githubUrl: "https://github.com/yourusername/e-commerce-platform",
     liveUrl: "https://ecommerce-platform-demo.vercel.app",
-    image: "/api/placeholder/800/400"
+    image: "/api/placeholder/800/400",
+    href: "/projects/e-commerce-platform"
   }
 };
 
@@ -102,7 +107,13 @@ export async function generateStaticParams() {
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project = projectData[slug as keyof typeof projectData];
+  // First try to get the project from the projects.ts file
+  let project = getProjectBySlug(slug);
+  
+  // If not found, try the fallback data
+  if (!project) {
+    project = projectData[slug as keyof typeof projectData];
+  }
 
   if (!project) {
     notFound();
