@@ -183,45 +183,47 @@ export const projects: Project[] = [
     href: "/projects/mobile-fitness-app"
   },
   {
-    id: "ai-chatbot",
-    title: "AI-Powered Chatbot",
-    description: "Intelligent chatbot using natural language processing for customer support and automated responses.",
+    id: "codeorbit",
+    title: "CodeOrbit: Agentic Workflow as Service (AWAS)",
+    description: "A powerful, open-source platform for building and deploying agentic workflows with a user-friendly interface for creating, testing, and managing complex workflows that automate a wide range of tasks.",
     longDescription: `
-      This AI-powered chatbot was developed to provide intelligent customer support and automated responses using advanced natural language processing techniques. The system can understand context, maintain conversation history, and provide relevant responses based on a knowledge base.
+      CodeOrbit is a powerful, open-source platform for building and deploying agentic workflows. It provides a user-friendly interface for creating, testing, and managing complex workflows that can automate a wide range of tasks.
 
-      The project showcases expertise in machine learning, natural language processing, and building scalable AI applications. The chatbot is designed to learn from interactions and improve its responses over time, while providing seamless integration with existing customer support systems.
+      Built on top of the popular open-source library Flowise, CodeOrbit extends its capabilities to provide a robust and scalable "Agentic Workflow as a Service" (AWAS) solution. It leverages the power of large language models (LLMs) and other AI technologies to enable developers to create sophisticated agents that can reason, plan, and execute tasks autonomously.
+
+      The platform is designed with a microservices architecture, consisting of key components including the main application server, dedicated worker service, Redis for message brokering and database caching, and a React-based UI. These components are containerized using Docker and can be orchestrated using Docker Compose.
     `,
-    technologies: ["Python", "TensorFlow", "NLP", "FastAPI", "Redis", "Docker", "OpenAI API"],
+    technologies: ["Node.js", "Express.js", "React.js", "Redis", "Docker", "Langchain", "OpenAI API", "Flowise"],
     status: "In Progress",
     category: "AI/ML",
-    duration: "4 months",
-    teamSize: "2 developers",
+    duration: "6 months",
+    teamSize: "3 developers",
     challenges: [
-      "Training models for accurate intent recognition",
-      "Handling context and conversation flow",
-      "Integrating with existing customer support systems",
-      "Ensuring response accuracy and relevance"
+      "Designing a scalable architecture for handling concurrent workflows",
+      "Implementing a reliable queue-based processing system",
+      "Creating an intuitive drag-and-drop interface for complex workflows",
+      "Ensuring security and isolation between different workflows"
     ],
     solutions: [
-      "Used transfer learning with pre-trained language models",
-      "Implemented conversation state management with Redis",
-      "Built RESTful APIs for seamless integration",
-      "Created comprehensive testing and evaluation frameworks"
+      "Implemented a microservices architecture with Docker containerization",
+      "Used Redis for reliable queue management and message brokering",
+      "Built a customizable React-based UI with drag-and-drop capabilities",
+      "Developed a comprehensive security model with workflow isolation"
     ],
     features: [
-      "Natural language understanding",
-      "Context-aware conversations",
-      "Multi-language support",
-      "Integration with support tickets",
-      "Analytics and reporting",
-      "Customizable responses",
-      "Learning from interactions",
-      "API for third-party integration"
+      "Drag-and-Drop UI for building complex agentic workflows",
+      "Extensible and customizable platform with custom tools and integrations",
+      "Scalable architecture for handling concurrent workflows",
+      "Dockerized deployment for easy setup and deployment",
+      "Queue-based processing with Redis",
+      "Comprehensive API for programmatic access",
+      "Flexible deployment options (self-hosted or managed service)",
+      "Support for multiple LLM providers"
     ],
-    githubUrl: "https://github.com/yourusername/ai-chatbot",
-    liveUrl: "https://chatbot-demo.herokuapp.com",
+    githubUrl: "https://github.com/yourusername/codeorbit",
+    liveUrl: "https://codeorbit-demo.vercel.app",
     image: "/api/placeholder/800/400",
-    href: "/projects/ai-chatbot"
+    href: "/projects/codeorbit"
   },
   {
     id: "portfolio-website",
@@ -276,4 +278,3 @@ export function getProjectsByCategory(category: string): Project[] {
   if (category === "All") return projects;
   return projects.filter(project => project.category === category);
 }
-
