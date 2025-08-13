@@ -102,7 +102,11 @@ export async function generateStaticParams() {
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project = projectData[slug as keyof typeof projectData];
+  const project = getProjectBySlug(slug);
+
+  if (!project) {
+    notFound();
+  }
 
   return (
     <div className="min-h-screen flex flex-col">
