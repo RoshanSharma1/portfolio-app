@@ -15,6 +15,7 @@ export interface Project {
   liveUrl?: string;
   image: string;
   href: string;
+  hasDiagram?: boolean;
 }
 
 export const projects: Project[] = [
@@ -222,8 +223,9 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/yourusername/codeorbit",
     liveUrl: "https://codeorbit-demo.vercel.app",
-    image: "/api/placeholder/800/400",
-    href: "/projects/codeorbit"
+    image: "/images/projects/codeorbit-architecture-dark.png",
+    href: "/projects/codeorbit",
+    hasDiagram: true
   },
   {
     id: "portfolio-website",
