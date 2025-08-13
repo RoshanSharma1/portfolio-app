@@ -9,6 +9,48 @@ import { notFound } from "next/navigation";
 
 // This would typically come from a CMS or database
 const projectData = {
+  "codeorbit": {
+    title: "CodeOrbit",
+    description: "A scalable AI agent orchestration platform that enables multi-agent workflows across organizations with distributed deployment capabilities.",
+    longDescription: `
+      CodeOrbit is an enterprise-grade platform designed to orchestrate AI agents across multiple organizations and deployment environments. The system enables complex workflows where agents can collaborate, share context, and execute tasks in a distributed manner.
+      
+      The architecture follows a hybrid deployment model, allowing organizations to run agents in their own infrastructure while maintaining a centralized coordination layer. This approach provides both security and flexibility, enabling organizations to keep sensitive data within their boundaries while still benefiting from cross-organizational workflows.
+      
+      The platform integrates with various LLM providers and agent frameworks including LangChain, Flowise, and OpenAI, providing a unified interface for agent management, monitoring, and deployment.
+    `,
+    technologies: ["React", "Node.js", "Docker Compose", "LangChain", "Flowise", "Redis", "OpenAI", "Anthropic"],
+    status: "Completed",
+    category: "AI/ML",
+    duration: "6 months",
+    teamSize: "4 developers",
+    challenges: [
+      "Designing a secure multi-tenant architecture that respects organizational boundaries",
+      "Implementing reliable message passing between distributed agent instances",
+      "Managing state across long-running workflows with multiple agents",
+      "Ensuring consistent agent behavior across different deployment environments"
+    ],
+    solutions: [
+      "Created a hybrid deployment model with core libraries and deployment environments for each organization",
+      "Implemented a message broker system with Redis for reliable cross-instance communication",
+      "Developed a state management layer using LangGraph for persistent workflow state",
+      "Built a unified testing framework to ensure consistent agent behavior across environments"
+    ],
+    features: [
+      "Multi-organization agent orchestration",
+      "Distributed deployment across multiple environments",
+      "Workflow designer with visual editor",
+      "Integration with multiple LLM providers (OpenAI, Anthropic, etc.)",
+      "Real-time monitoring and observability",
+      "Secure cross-organizational workflows",
+      "Persistent state management",
+      "Task queue and execution management"
+    ],
+    githubUrl: "https://github.com/yourusername/codeorbit",
+    liveUrl: "https://codeorbit-demo.vercel.app",
+    image: "/images/projects/codeorbit-architecture-dark.png",
+    hasDiagram: true
+  },
   "e-commerce-platform": {
     title: "E-Commerce Platform",
     description: "A comprehensive full-stack e-commerce solution built with modern web technologies. This project demonstrates scalable architecture, secure payment processing, and excellent user experience.",
@@ -53,6 +95,7 @@ const projectData = {
 export async function generateStaticParams() {
   // Define all possible slugs here
   return [
+    { slug: 'codeorbit' },
     { slug: 'e-commerce-platform' }
   ];
 }
@@ -111,12 +154,22 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             </div>
           </div>
 
-          {/* Project Image */}
+          {/* Project Image or Architecture Diagram */}
           <Card className="mb-8">
             <CardContent className="p-0">
-              <div className="aspect-video bg-muted rounded-t-lg flex items-center justify-center">
-                <div className="text-muted-foreground">Project Screenshot</div>
-              </div>
+              {project.hasDiagram ? (
+                <div className="rounded-lg overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={`${project.title} Architecture Diagram`} 
+                    className="w-full h-auto"
+                  />
+                </div>
+              ) : (
+                <div className="aspect-video bg-muted rounded-t-lg flex items-center justify-center">
+                  <div className="text-muted-foreground">Project Screenshot</div>
+                </div>
+              )}
             </CardContent>
           </Card>
 
@@ -136,6 +189,47 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Architecture Diagram (only for projects with diagrams) */}
+              {project.hasDiagram && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Architecture Overview</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="prose prose-sm max-w-none">
+                      <p className="text-muted-foreground mb-4">
+                        The architecture diagram above illustrates the distributed nature of the CodeOrbit platform. Key components include:
+                      </p>
+                      <ul className="space-y-2">
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                          <span><strong>Main API/Workflow:</strong> Central coordination layer that manages workflows and routes requests.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                          <span><strong>CodeOrbit Instances:</strong> Organization-specific deployments that run within customer environments.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                          <span><strong>Core Libraries:</strong> Shared components including Flowise for workflow design, LangChain for agent capabilities, and LLM integrations.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                          <span><strong>Managed Service:</strong> Optional cloud deployment with Docker Compose for organizations that prefer not to self-host.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                          <span><strong>Redis Cache:</strong> Distributed cache for task queuing and state management across instances.</span>
+                        </li>
+                      </ul>
+                      <p className="text-muted-foreground mt-4">
+                        This architecture enables secure, cross-organizational workflows while respecting data boundaries and security requirements.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
 
               {/* Features */}
               <Card>
@@ -220,4 +314,4 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <Footer />
     </div>
   );
-} 
+}

@@ -6,6 +6,16 @@ import Link from "next/link";
 
 const projects = [
   {
+    id: "codeorbit",
+    title: "CodeOrbit",
+    description: "A scalable AI agent orchestration platform that enables multi-agent workflows across organizations. Features distributed deployment, LLM integration, and workflow management.",
+    technologies: ["React", "Node.js", "Docker", "LangChain", "Redis", "Flowise"],
+    status: "Completed",
+    category: "AI/ML",
+    image: "/api/placeholder/400/250",
+    href: "/projects/codeorbit"
+  },
+  {
     id: "e-commerce-platform",
     title: "E-Commerce Platform",
     description: "A full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include user authentication, product catalog, shopping cart, payment processing, and admin dashboard.",
@@ -142,4 +152,4 @@ export default function ProjectsPage() {
       <Footer />
     </div>
   );
-} 
+}
